@@ -1,11 +1,17 @@
 const asyncHandler = require("express-async-handler");
 const Contact = require("../models/contactModel");
+const path = require("path");
 
 // @desc Get all contacts // 함수 설명
 // @route GET /contacts  // 요청 방식과 URL
 const getAllContacts = asyncHandler(async (req, res) => {
     const contacts = await Contact.find();
-    res.status(200).send(contacts);
+    const users = [
+        {name: "John", email: "john@email.com", phone: "010-123456"},
+        {name: "Jane", email: "jane@email.com", phone: "010-345678"},
+    ];
+    // res.status(200).send(contacts);
+    res.render("getAll", { heading: "User List", users: users});
 });
 
 // @desc Create a contact
