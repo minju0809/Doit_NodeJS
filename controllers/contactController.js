@@ -6,12 +6,7 @@ const path = require("path");
 // @route GET /contacts  // 요청 방식과 URL
 const getAllContacts = asyncHandler(async (req, res) => {
     const contacts = await Contact.find();
-    const users = [
-        {name: "John", email: "john@email.com", phone: "010-123456"},
-        {name: "Jane", email: "jane@email.com", phone: "010-345678"},
-    ];
-    // res.status(200).send(contacts);
-    res.render("getAll", { heading: "User List", users: users});
+    res.render("index", { contacts: contacts })
 });
 
 // @desc Create a contact
