@@ -17,7 +17,8 @@ dbConnect();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/contacts", require("./routes/contactRountes"));
+app.use("/", require("./routes/loginRoutes"));
+app.use("/contacts", require("./routes/contactRoutes"));
 
 // app.get("/", (req, res) => {
 //     res.status(200).send("Hello Node!");
