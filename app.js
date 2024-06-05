@@ -1,10 +1,12 @@
 const express = require("express");
 const dbConnect = require("./config/dbConnect");
 const methodOverride = require("method-override");
+const expressLayouts = require("express-ejs-layouts");
 
 const app = express();
 const port = 3000;
 
+app.use(expressLayouts);
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
@@ -17,7 +19,8 @@ dbConnect();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/", require("./routes/loginRoutes"));
+app.use("/", require("./routes/boardRoutes"));
+app.use("/login", require("./routes/loginRoutes"));
 app.use("/contacts", require("./routes/contactRoutes"));
 
 // app.get("/", (req, res) => {

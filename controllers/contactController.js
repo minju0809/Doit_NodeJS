@@ -6,7 +6,7 @@ const path = require("path");
 // @route GET /contacts  // 요청 방식과 URL
 const getAllContacts = asyncHandler(async (req, res) => {
     const contacts = await Contact.find();
-    res.render("index", { contacts: contacts })
+    res.render("list", { contacts: contacts })
 });
 
 // @desc View add contact Form

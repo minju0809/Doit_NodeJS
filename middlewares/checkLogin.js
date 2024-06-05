@@ -10,7 +10,7 @@ const checkLogin = async(req, res, next) => {
   const token = req.cookies.token;
 
   if(!token) {
-    return res.redirect("/");
+    return res.redirect("/login");
   }
 
   try {

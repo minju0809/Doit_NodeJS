@@ -8,7 +8,7 @@ const jwtSecret = process.env.JWT_SECRET;
 //@desc Get login page
 //@route GET
 const getLogin = (req, res) => {
-    res.render("Home");
+    res.render("login");
 };
 
 //@desc Login user
@@ -31,7 +31,7 @@ const loginUser = asyncHandler(async(req, res) => {
     const token = jwt.sign({ id: user._id }, jwtSecret);
     res.cookie("token", token, { httpOnly: true });
 
-    res.redirect("/contacts");
+    res.redirect("/");
 });
 
 //@desc Register Page
@@ -57,7 +57,7 @@ const registerUser = asyncHandler(async(req, res) => {
 //@route GET /logout
 const logout = (req, res) => {
     res.clearCookie("token");
-    res.redirect("/");
+    res.redirect("/login");
 }
 
 module.exports = { getLogin, loginUser, getRegister, registerUser, logout };

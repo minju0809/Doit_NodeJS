@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Blog</title>
-  <meta name="description" content="My first application using Node.js, Express and MongoDB">
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
+<%- include('../include/_home_header') %>
   
   <div class="container">   
 
@@ -21,10 +11,10 @@
       <nav class="header-nav">
         <ul>
           <li>
-            <a href="#">Home</a>
+            <a href="/home">Home</a>
           </li>
           <li>
-            <a href="#">About</a>
+            <a href="/about">About</a>
           </li>
         </ul>
       </nav>
@@ -37,9 +27,8 @@
 
     <!-- 메인 : 실제 내용이 들어갈 부분 -->    
     <main class="main">
-      여기 내용
+      <%-body %>
     </main>
   </div>  
 
-</body>
-</html>
+<%- include('../include/_footer') %>
