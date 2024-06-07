@@ -16,7 +16,7 @@ const checkAdmin = async (req, res, next) => {
     req.userId = decoded.userId;
     next();
   } catch (e) {
-    return res.redirect("/admin");
+    return res.status(401).json({ message: "로그인이 필요합니다" });
   }
 };
 

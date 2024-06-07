@@ -1,18 +1,20 @@
 const asyncHandler = require("express-async-handler");
 const Contact = require("../models/contactModel");
+const adminLayout = "../views/layouts/admin.ejs";
+const mainLayout = "../views/layouts/main.ejs";
 const path = require("path");
 
 // @desc Get all contacts // 함수 설명
 // @route GET /contacts  // 요청 방식과 URL
 const getAllContacts = asyncHandler(async (req, res) => {
     const contacts = await Contact.find();
-    res.render("list", { contacts: contacts })
+    res.render("list", { contacts: contacts, layout: adminLayout })
 });
 
 // @desc View add contact Form
 // @route GET /contacts/add
 const addContactForm = (req, res) => {
-    res.render("add"); // views/add.ejs 렌더링하기
+    res.render("add", { layout: adminLayout }); // views/add.ejs 렌더링하기
 };
 
 // @desc Create a contact
@@ -25,7 +27,7 @@ const createContact = asyncHandler(async (req, res) => {
     }
     const contact = await Contact.create({
         name,
-        email, 
+        email,
         phone,
     });
     res.redirect("/contacts");
@@ -37,7 +39,7 @@ const getContact = asyncHandler(async (req, res) => {
     // const name = req.params.id;
     // const contact = await Contact.findOne({name: name});
     const contact = await Contact.findById(req.params.id);
-    res.render("update", { contact: contact });
+    res.render("update", { contact: contact, layout: adminLayout });
 });
 
 // @desc Update contact
@@ -57,8 +59,8 @@ const updateContact = asyncHandler(async (req, res) => {
 
     const updatedContact = await Contact.findByIdAndUpdate(
         id,
-        {name, email, phone},
-        {new: true}
+        { name, email, phone },
+        { new: true }
     )
 
     res.redirect("/contacts")

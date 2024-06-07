@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/", require("./routes/boardRoutes"));
 app.use("/", require("./routes/adminRoutes"));
-app.use("/login", require("./routes/loginRoutes"));
+// app.use("/login", require("./routes/loginRoutes"));
 app.use("/contacts", require("./routes/contactRoutes"));
 
 // app.get("/", (req, res) => {

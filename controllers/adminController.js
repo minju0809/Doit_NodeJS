@@ -1,6 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const adminLayout = "../views/layouts/admin";
-const adminLayout2 = "../views/layouts/admin-nologout";
+const mainLayout = "../views/layouts/main";
 const bcrypt = require("bcrypt");
 const User = require("../models/userModel");
 const Board = require("../models/boardModel");
@@ -13,7 +13,7 @@ const admin = (req, res) => {
         title: "관리자 페이지",
     };
 
-    res.render("admin/index", { locals, layout: adminLayout2 });
+    res.render("admin/login", { locals, layout: mainLayout });
 }
 
 const loginAdmin = asyncHandler(async (req, res) => {
