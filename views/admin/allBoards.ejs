@@ -1,0 +1,22 @@
+<div class="admin-title">
+    <h2>
+        <%=locals.title %>
+    </h2>
+    <a href="/boardAdd" class="button">+ 새 게시물</a>
+</div>
+
+<ul class="admin-posts">
+    <% data.forEach(board=> { %>
+        <li>
+            <a href="/board/<%=board._id %>">
+                <%=board.title %>
+            </a>
+            <div class="admin-post-controls">
+                <a href="/edit/<%=board._id %>" class="btn">편집</a>
+                <form action="/delete/<%=board._id %>?_method=DELETE" method="POST">
+                    <input type="submit" value="삭제" class="btn-delete btn">
+                </form>
+            </div>
+        </li>
+    <% }) %>
+</ul>

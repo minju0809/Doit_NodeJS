@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const dbConnect = require("./config/dbConnect");
 const methodOverride = require("method-override");
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/", require("./routes/boardRoutes"));
+app.use("/", require("./routes/adminRoutes"));
 app.use("/login", require("./routes/loginRoutes"));
 app.use("/contacts", require("./routes/contactRoutes"));
 
