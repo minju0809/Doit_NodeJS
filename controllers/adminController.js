@@ -35,7 +35,7 @@ const loginAdmin = asyncHandler(async (req, res) => {
 
     res.cookie("token", token, { hpptOnly: true });
 
-    res.redirect("/allBoards");
+    res.redirect("/");
 });
 
 // const registerUser = asyncHandler(async (req, res) => {

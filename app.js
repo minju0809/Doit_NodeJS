@@ -24,6 +24,7 @@ app.use("/", require("./routes/boardRoutes"));
 app.use("/", require("./routes/adminRoutes"));
 // app.use("/login", require("./routes/loginRoutes"));
 app.use("/contacts", require("./routes/contactRoutes"));
+app.use("/", require("./routes/userRoutes"));
 
 // app.get("/", (req, res) => {
 //     res.status(200).send("Hello Node!");

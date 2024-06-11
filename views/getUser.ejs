@@ -1,0 +1,24 @@
+<!-- 상단 소개글, 히어로 이미지 -->
+<div class="top">
+  <h1 class="top-heading">유저 목록</h1>
+</div>
+
+<!-- 최근 게시물 -->
+<section class="articles">
+  <table align="center" border=1>
+    <tr>
+      <td>닉네임</td>
+      <td>비밀번호</td>
+    </tr>
+    <% data.forEach(user=> { %>
+      <tr>
+        <td>
+          <%=user.username %>
+        </td>
+        <td>
+          <%=user.password %>
+        </td>
+      </tr>
+      <% }) %>
+  </table>
+</section>
